@@ -4,6 +4,7 @@ forge "http://forge.puppetlabs.com"
 # Note the versions are all set to :latest but after you've 
 # installed you should change them to the exact version you want
 mod "saz/ssh", :latest
+mod "mthibaut/users", :latest
 
 #An example of using a specific forge module version instead of latest
 #Notice the addition of single quotes
@@ -23,3 +24,4 @@ mod 'gitlab',
 mod 'pltraining-rbac',
   :git    => 'https://github.com/puppetlabs/pltraining-rbac',
   :ref    => '2f60e1789a721ce83f8df061e13f8bf81cd4e4ce'
+
