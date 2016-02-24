@@ -11,3 +11,17 @@ puppet_enterprise::master::code_manager::authenticate_webhook: false
 #https://docs.puppetlabs.com/pe/latest/console_config.html#tuning-the-classifier-synchronization-period
 #disable classifier scheduled sync and rely on r10k postrun command to sync the classes
 puppet_enterprise::profile::console::classifier_synchronization_period: 0
+
+users_all:
+  bjones:
+         ensure: present
+         uid: 5001
+         gid: users
+         groups:
+           - devops
+         comment: Byron
+         managehome: true
+         ssh_authorized_keys:
+           bjoneskey:
+             type: 'ssh-rsa'
+             key: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDSiRy9JYAqtOOHGygp4Fn/3taO3JK0J5PzSAtMAPGqdCfgSK30mPD9DsTee+Cr+tlnCK1ePZObjLqFDxBNIW876bhtyXBArJ/9LpAXQN90j99PtYbOl/rVLasQCKABtyHcrXXBfIm1Vm7b1A8bktaw654TXcO0vQc4cvYp2CoN6CZe96XBwpMlO57p9qK+TqvieGHp6LPdjFtJb1cQaK0mIQkfZurhRKU+BFBt93+axBIy4KArV/RLk7tjiMFUyjr79WhGjwIHCvdruQK7hHE5GKE7jJsF2kHDbZyruMUeWQOkPKQdFP8sonRDGjOi2BFWWuw2Yk6vobyvGI84yaEn'

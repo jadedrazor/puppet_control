@@ -1,0 +1,14 @@
+
+users_all:
+  test:
+         ensure: present
+         uid: 5002
+         gid: users
+         groups:
+           - users
+         comment: test
+         managehome: true
+         ssh_authorized_keys:
+           test:
+             type: 'ssh-rsa'
+             key: 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDSiRy9JYAqtOOHGygp4Fn/3taO3JK0J5PzSAtMAPGqdCfgSK30mPD9DsTee+Cr+tlnCK1ePZObjLqFDxBNIW876bhtyXBArJ/9LpAXQN90j99PtYbOl/rVLasQCKABtyHcrXXBfIm1Vm7b1A8bktaw654TXcO0vQc4cvYp2CoN6CZe96XBwpMlO57p9qK+TqvieGHp6LPdjFtJb1cQaK0mIQkfZurhRKU+BFBt93+axBIy4KArV/RLk7tjiMFUyjr79WhGjwIHCvdruQK7hHE5GKE7jJsF2kHDbZyruMUeWQOkPKQdFP8sonRDGjOi2BFWWuw2Yk6vobyvGI84yaEn'
