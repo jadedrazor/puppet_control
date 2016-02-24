@@ -12,6 +12,8 @@ puppet_enterprise::master::code_manager::authenticate_webhook: false
 #disable classifier scheduled sync and rely on r10k postrun command to sync the classes
 puppet_enterprise::profile::console::classifier_synchronization_period: 0
 
+groups:
+  - devops
 users_all:
   bjones:
          ensure: present

@@ -1,11 +1,12 @@
-
+groups:
+  - testers
 users_all:
   test:
          ensure: present
          uid: 5002
          gid: users
          groups:
-           - users
+           - testers
          comment: test
          managehome: true
          ssh_authorized_keys:

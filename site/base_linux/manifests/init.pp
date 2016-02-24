@@ -8,4 +8,17 @@ class base_linux {
   motd::register{'base_linux':}
   motd::register{"puppet_environment" : content => "Puppet Environment: $::environment"}
 
+  #make some groups
+  $osgroups = hiera('groups')
+  $osgroups.each |String $osgroup| {
+      group { "$osgroup":
+        name     => "$osgroup",
+        ensure   => present,
+      }
+  }
+  # Include devops users on all machines for the moment.
+  users { all:  }
+
+  # Create a devops group which we can then assign users to
+
 }

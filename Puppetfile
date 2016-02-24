@@ -4,6 +4,7 @@ forge "http://forge.puppetlabs.com"
 # Note the versions are all set to :latest but after you've 
 # installed you should change them to the exact version you want
 mod "saz/ssh", :latest
+mod "puppetlabs-stdlib", :latest
 mod "mthibaut/users", :latest
 
 #An example of using a specific forge module version instead of latest
