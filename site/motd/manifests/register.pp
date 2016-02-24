@@ -6,7 +6,7 @@ define motd::register($content='', $order=10) {
     $body = $content
   }
 
-  concat::fragment{ "motd_fragment_${name}":
+  pe_concat::fragment{ "motd_fragment_${name}":
     target  => '/etc/motd',
     content => "  -- ${body}\n"
   }
