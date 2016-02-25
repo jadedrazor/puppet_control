@@ -5,9 +5,8 @@ class base_linux {
   motd::register{'base_linux':}
   motd::register{"puppet_environment" : content => "Puppet Environment: $::environment"}
 
-  #make some groups
-  $osgroups = hiera_array('groups')
-
+  #make some groups (using the hiera replacement)
+  $osgroups = lookup('groups',Array[String],unique)
 
   $osgroups.each |String $osgroup| {
       group { "$osgroup":
