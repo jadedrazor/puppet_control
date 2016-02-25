@@ -29,18 +29,18 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |vb|
       vb.memory = "512"
     end
-    
+
    config.vm.provision "shell", inline: <<-SHELL
+   set -xv
    echo '192.168.33.10  puppet  puppet.redspot.internal' >> /etc/hosts
-   while ! curl -q -s -k https://puppet:8140/packages/current/install.bash > /dev/null ; do 
-    curl --retry 10000 --retry-delay 5 -k https://puppet:8140/packages/current/install.bash | sudo bash
-   done
+    curl --retry 10000 --retry-delay 5 -q -s -k https://puppet:8140/packages/current/install.bash | sudo bash
+   puppet agent --test --environment=dev --waitforcert 60 
    SHELL
 
   end
 
 
-  config.vm.define "puppet" do |web|
+  config.vm.define "puppet" do |puppet|
     config.vm.hostname = 'puppet.redspot.internal'
     config.vm.network "private_network", ip: "192.168.33.10"
     config.vm.network "forwarded_port", guest: 3000, host:3000    
@@ -48,6 +48,13 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |vb|
       vb.memory = "4500"
     end
+
+    config.vm.provision "shell", inline: <<-SHELL
+     echo '192.168.33.10  puppet  puppet.redspot.internal' >> /etc/hosts
+     cd /vagrant/puppet-enterprise-2015.3.2-ubuntu-14.04-amd64/
+     ./puppet-enterprise-installer -A answers.txt
+    SHELL
+    
   end
 
 
