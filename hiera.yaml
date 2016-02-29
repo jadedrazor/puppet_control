@@ -10,3 +10,10 @@ hierarchy:
 
   - name: "dev"
     backend: yaml
+
+  - name: "%{::ee_env}"
+    backend: yaml
+  - name: "%{::ee_role}"
+    backend: yaml
+  - name: "%{::ee_project}"
+    backend: yaml
