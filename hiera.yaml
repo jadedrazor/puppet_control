@@ -1,0 +1,12 @@
+---
+version: 4
+datadir: hieradata
+hierarchy:
+  - name: "virtual/%{facts.virtual}"
+    backend: yaml
+
+  - name: "common"
+    backend: yaml
+
+  - name: "dev"
+    backend: yaml

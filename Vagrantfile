@@ -51,7 +51,7 @@ Vagrant.configure("2") do |config|
 
     config.vm.provision "shell", inline: <<-SHELL
      echo '192.168.33.10  puppet  puppet.redspot.internal' >> /etc/hosts
-     cd /vagrant/puppet-enterprise-2015.3.2-ubuntu-14.04-amd64/
+     cd /vagrant/puppet-enterprise-2015.3.1-ubuntu-14.04-amd64/
      ./puppet-enterprise-installer -A answers.txt
     SHELL
     
